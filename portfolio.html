@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0; padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+body{
+    background: linear-gradient(135deg,#1e1f1e,#303131,#000);
+    color:white;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+.box{
+    width:90%; max-width:1000px;
+    height:85vh;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:40px;
+    box-shadow:0 0 25px rgba(255,136,0,0.4);
+}
+.left{ width:60%; }
+
+.left h1{
+    font-size:30px; color:#ffae00;
+}
+
+.type{
+    font-size:18px; color:#fff; opacity:0.9;
+    border-right:2px solid #ffae00;
+    width:fit-content;
+    white-space:nowrap;
+    overflow:hidden;
+    animation:typing 4s steps(22) infinite, blink .6s infinite;
+}
+
+@keyframes typing{
+    0%{width:0}
+    50%{width:100%}
+    100%{width:0}
+}
+@keyframes blink{
+    50%{border-color:transparent}
+}
+
+.section-title{ color:#ffae00; margin:18px 0 6px; font-weight:600; }
+
+.right img{
+    width:260px; height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #ffae00;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:15px;
+    display:flex; gap:10px; flex-wrap:wrap;
+}
+button, .btn{
+    background:#ffae00; border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+    text-decoration:none; color:black;
+}
+button:hover,.btn:hover{
+    background:#ff7b00; transform:scale(1.05);
+}
+
+/* Popup Project Window */
+#projectModal{
+    position:fixed; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:80%; max-width:600px;
+    background:#1e1f1e;
+    padding:20px; display:none;
+    border-radius:12px; box-shadow:0 0 15px orange;
+}
+#projectModal h2{ color:#ffa500; margin-bottom:10px; }
+.close{
+    background:red; color:white;
+    padding:5px 10px; border-radius:5px; cursor:pointer;
+}
+@media(max-width:850px){
+    .box{ flex-direction:column; height:95vh; text-align:center; }
+    .left{ width:100%; }
+}
+</style>
+
+<script>
+function showProjects(){
+    document.getElementById("projectModal").style.display="block";
+}
+function closeProjects(){
+    document.getElementById("projectModal").style.display="none";
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <div class="left">
+        <h1>Venkata Dhanush Kumar</h1>
+        <div class="type">Creator • Developer • Problem Solver</div>
+
+        <p class="section-title">Education</p>
+        <p>B.Tech in Computer Science</p>
+
+        <p class="section-title">Technical Skills</p>
+        <p><b>Programming:</b> Python, Core Java</p>
+        <p><b>Web:</b> HTML, CSS, JavaScript</p>
+        <p><b>Database:</b> SQL</p>
+
+        <p class="section-title">Contact</p>
+        <p>📞 7013734993</p>
+        <p>📧 dhanushkumar94417@gmail.com</p>
+
+        <div class="buttons">
+            <a class="btn" href="https://linkedin.com/in/grandhe-venkata-dhanush-kumar-a9b07824a" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://github.com/" target="_blank">GitHub</a>
+            <a class="btn" href="./DHANUSH KUMAR.pdf" download>Download Resume</a>
+            <button onclick="showProjects()">View Projects</button>
+        </div>
+    </div>
+
+    <div class="right">
+        <img src="Mypic.jpg" alt="Profile">
+    </div>
+</div>
+
+<!-- Project Popup -->
+<div id="projectModal">
+    <h2>Projects</h2>
+    <ul>
+        <li>ATM Project - Java OOPs</li>
+        <li>Portfolio - HTML , CSS</li>
+        <li>College Management System – HTML/CSS</li>
+    </ul><br>
+    <button class="close" onclick="closeProjects()">Close</button>
+</div>
+
+</body>
+</html>
